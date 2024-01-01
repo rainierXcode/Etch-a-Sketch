@@ -63,17 +63,27 @@ footer{
   
 }
 
-.more-colors-button {
+.modifier-buttons{
+  background-color: #7B66FF;
+  padding: 3px 6px 3px 6px;
+  width: 100px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 40px;
+  transition: width 200ms ease-in-out;
+}
+
+#more-colors-button {
   display: flex;
   justify-content: space-around;
   align-items: center; 
   border: none; 
-  background: none; 
   cursor: pointer;
   gap: 5px;
 }
 
-.more-colors-button input[type="color"] {
+#more-colors-button input[type="color"] {
   border: none;
   padding: 0;
   margin: 0;
@@ -93,16 +103,7 @@ footer{
   gap: 20px;
 }
 
-.modifier-buttons{
-  background-color: #7B66FF;
-  padding: 3px 6px 3px 6px;
-  width: 100px;
-  text-align: center;
-  border-radius: 5px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  height: 40px;
-  transition: width 200ms ease-in-out;
-}
+
 
 .modifier-buttons:hover{
   width: 105px;
@@ -181,6 +182,9 @@ footer{
   height: 25px;
   background: #04AA6D;
   cursor: pointer;
+}
+#active-button{
+  border: 2px solid #fff;
 }
 
 #black{
