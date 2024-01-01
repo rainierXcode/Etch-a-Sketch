@@ -3,42 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ETCH A SKETCH</title>
+    <title>Etch-A-Sketch</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        Etch A Sketch
-    </header>
-    <section>
-        <div class="left">
-            <div class="text">Color Available</div>
-            <div class="colors">
-                <button class="colorBtn" id="red">Red</button>
-                <button class="colorBtn" id="black">Black</button>
-                <button class="colorBtn" id="blue">Blue</button>
-                <button class="colorBtn" id="white">White</button>
-            </div>
-            <button id="clearBtn"> CLEAR</button>
-        </div>
-        <div class="mid"></div>
-        <div class="right">
-            <div class="line">
-                <button class="sizeBtn" id="20">20x20</button>
-                <button class="sizeBtn" id="30">30x30</button>
+     <header>Etch-A-Sketch</header>
+
+     <div class="main-container">
+
+        <div class="modifier-box">
+         <div class="box-color">
+            <div class="box-color-top">
+                <button id="black"></button>
+                <button id="red"></button>
+                <button id="yellow"></button>
+                <button id="green"></button>
+                <button id="purple"></button>
             </div>
 
-            <div class="line">
-                <button class="sizeBtn" id="50">50x50</button>
-                <button class="sizeBtn" id="70">70x70</button>
+            <div class="box-color-bottom">
+                <button id="orange"></button>
+                <button id="pink"></button>
+                <button id="brown"></button>
+                <button id="gray"></button>
+                <button id="blue"></button>
             </div>
 
-            <div class="line">
-                <button class="sizeBtn" id="80">80x80</button>
-                <button class="sizeBtn" id="100">100x100</button>
-            </div>
+         </div>
+
+        <button class="remove-attributes-button modifier-buttons more-colors-button">
+            <div>More: </div>
+            <div><input type="color"></div>
+        </button>
+
+        <button class="remove-attributes-button modifier-buttons">
+            Rainbow
+        </button>
+
+        <button class="remove-attributes-button modifier-buttons">
+            Eraser
+        </button>
+
+        <button class="remove-attributes-button modifier-buttons">
+            Clear
+        </button>
+
+
+    
         </div>
-    </section>
+
+         <div class="sketch-box-container">
+
+            <div class="sketch-box">
+            
+            </div>
+
+            <div id="rangeValue"></div>
+            <div class="slider-container">
+                <div>1</div>
+                <input type="range" min="1" max="100" value="20" class="slider" id="myRange">
+                <div>100</div>
+            </div>
+            
+        </div>
+
+      
+     </div>
+     
+     <footer>Copyright <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.89999 6.61669C9.96666 6.66669 10.2417 7.57502 10.2583 8.00002H11.75C11.6833 6.35002 10.5083 5.34169 8.87499 5.34169C7.03332 5.34169 5.66666 6.50002 5.66666 9.11669C5.66666 10.7334 6.44166 12.65 8.86666 12.65C10.7167 12.65 11.7083 11.275 11.7333 10.1917H10.2417C10.2167 10.6834 9.86666 11.3417 8.88332 11.3917C7.79166 11.3584 7.33332 10.5084 7.33332 9.11669C7.33332 6.70835 8.39999 6.63335 8.89999 6.61669ZM8.99999 0.666687C4.39999 0.666687 0.666656 4.40002 0.666656 9.00002C0.666656 13.6 4.39999 17.3334 8.99999 17.3334C13.6 17.3334 17.3333 13.6 17.3333 9.00002C17.3333 4.40002 13.6 0.666687 8.99999 0.666687ZM8.99999 15.6667C5.32499 15.6667 2.33332 12.675 2.33332 9.00002C2.33332 5.32502 5.32499 2.33335 8.99999 2.33335C12.675 2.33335 15.6667 5.32502 15.6667 9.00002C15.6667 12.675 12.675 15.6667 8.99999 15.6667Z" fill="#666666"/>
+        </svg>
+        2024 rainierxcode <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9.00002 0.666687C7.90567 0.666687 6.82204 0.882235 5.81099 1.30102C4.79994 1.71981 3.88129 2.33364 3.10746 3.10746C1.54466 4.67027 0.666687 6.78988 0.666687 9.00002C0.666687 12.6834 3.05835 15.8084 6.36669 16.9167C6.78335 16.9834 6.91669 16.725 6.91669 16.5V15.0917C4.60835 15.5917 4.11669 13.975 4.11669 13.975C3.73335 13.0084 3.19169 12.75 3.19169 12.75C2.43335 12.2334 3.25002 12.25 3.25002 12.25C4.08335 12.3084 4.52502 13.1084 4.52502 13.1084C5.25002 14.375 6.47502 14 6.95002 13.8C7.02502 13.2584 7.24169 12.8917 7.47502 12.6834C5.62502 12.475 3.68335 11.7584 3.68335 8.58335C3.68335 7.65835 4.00002 6.91669 4.54169 6.32502C4.45835 6.11669 4.16669 5.25002 4.62502 4.12502C4.62502 4.12502 5.32502 3.90002 6.91669 4.97502C7.57502 4.79169 8.29169 4.70002 9.00002 4.70002C9.70835 4.70002 10.425 4.79169 11.0834 4.97502C12.675 3.90002 13.375 4.12502 13.375 4.12502C13.8334 5.25002 13.5417 6.11669 13.4584 6.32502C14 6.91669 14.3167 7.65835 14.3167 8.58335C14.3167 11.7667 12.3667 12.4667 10.5084 12.675C10.8084 12.9334 11.0834 13.4417 11.0834 14.2167V16.5C11.0834 16.725 11.2167 16.9917 11.6417 16.9167C14.95 15.8 17.3334 12.6834 17.3334 9.00002C17.3334 7.90567 17.1178 6.82204 16.699 5.81099C16.2802 4.79994 15.6664 3.88129 14.8926 3.10746C14.1188 2.33364 13.2001 1.71981 12.189 1.30102C11.178 0.882235 10.0944 0.666687 9.00002 0.666687Z" fill="#666666"/>
+            </svg>
+            </footer>
 </body>
 </html>
