@@ -79,6 +79,35 @@ function drawing(color){
     document.addEventListener('mouseup', () => {
       isDrawing = false;
     });
+
+    //for phone to draw
+    boxes.forEach(box => {
+        box.addEventListener('touchmove', (event) => {
+          if (isDrawing) {
+            event.preventDefault(); // Prevent scrolling while drawing
+            const touch = event.touches[0];
+            const touchedElement = document.elementFromPoint(touch.clientX, touch.clientY);
+            
+            if (touchedElement && touchedElement.classList.contains('sketch-box')) {
+              if (isRainbow) {
+                const randomIndex = Math.floor(Math.random() * rainbowColors.length);
+                const randomColor = rainbowColors[randomIndex];
+                touchedElement.style.backgroundColor = randomColor;
+              } else {
+                touchedElement.style.backgroundColor = color;
+              }
+            }
+          }
+        });
+        
+        box.addEventListener('touchstart', () => {
+          isDrawing = true;
+        });
+    
+        box.addEventListener('touchend', () => {
+          isDrawing = false;
+        });
+      });
 }
 
 function clear(){
