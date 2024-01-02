@@ -12,8 +12,8 @@
 - CSS (including Flexbox)
 - JavaScript
 
-![Alt text](image-1.png)
+![Alt text](/images/image.png)
 
 
 ## Sample Work
-![Alt text](image.png)
+![Alt text](/images/image1.png)

@@ -88,69 +88,92 @@ function clear(){
     })
 }
 
-function removeBorderTheCurrentButton(){
-    const elementWithIDCurrent = document.getElementById("active-button");
-    document.querySelectorAll(".box-color-top button").forEach((box)=>{
-        box.style.border = "none";
-        box.style.border = "#fff";
-    })
-    if(elementWithIDCurrent){
-        elementWithIDCurrent.removeAttribute('id');
-    }
-}
+
 
 initialize();
 monitoringSize();
 drawing('black');
 
-//Modifier Pag
+//Modifier Page
+
+const allButtons = document.querySelectorAll(".all-buttons");
+allButtons.forEach(button =>{
+    button.addEventListener('click', ()=>{
+        allButtons.forEach(button =>{
+            button.style.border = 'none'
+            button.style.borderColor = '#fff';
+        });
+        button.style.border  = '2px solid #fff';
+    })
+})
+
+
 document.getElementById("clear-button").addEventListener("click", ()=>{
+    isRainbow = false;
     clear()
 })
 
 document.getElementById("eraser-button").addEventListener("click", (event) => {
     isRainbow = false;
     drawing('white');
-    removeBorderTheCurrentButton();
   
-    // Use event.currentTarget to refer to the button element
     event.currentTarget.setAttribute('id', 'active-button')
   });
   
 document.getElementById("rainbow-button").addEventListener('click', (event)=>{
     isRainbow = true;
-    removeBorderTheCurrentButton();
     event.currentTarget.setAttribute('id', 'active-button');
 })
 
 document.getElementById("color-input").addEventListener('click', ()=>{
-    removeBorderTheCurrentButton();
+    isRainbow = false;
+    allButtons.forEach(button =>{
+        button.style.border = 'none'
+        button.style.borderColor = '#fff';
+    });
+    document.getElementById("more-colors-button").style.border = '2px solid #fff';
 });
 
 document.getElementById("color-input").addEventListener('input', (event)=>{
+    isRainbow = false;
     const selectedColor = event.target.value;
     drawing(selectedColor);
 })
 
+document.getElementById("more-colors-button").addEventListener('click', ()=>{
+    isRainbow = false;
+    drawing(document.getElementById('color-input').value);
+})
+
+
 //Common colors selecting
 document.getElementById("black").addEventListener("click", (event)=> {
-    isRainbow = false; drawing('black'); removeBorderTheCurrentButton(); event.currentTarget.style.border = '2px solid #fff'});
+    isRainbow = false; drawing('black')});
+
 document.getElementById("red").addEventListener("click", (event)=> {
-    isRainbow = false; drawing('red'); removeBorderTheCurrentButton(); event.currentTarget.style.border = '2px solid #fff' });
+    isRainbow = false; drawing('red');});
+
 document.getElementById("yellow").addEventListener("click", (event)=> {
-    isRainbow = false; drawing('yellow'); removeBorderTheCurrentButton(); event.currentTarget.style.border = '2px solid #fff'});
+    isRainbow = false; drawing('yellow');});
+
 document.getElementById("green").addEventListener("click", (event)=> {
-    isRainbow = false; drawing('green'); removeBorderTheCurrentButton(event); event.currentTarget.style.border = '2px solid #fff'});
+    isRainbow = false; drawing('green');});
+
 document.getElementById("purple").addEventListener("click", (event)=> {
-    isRainbow = false; drawing('purple'); removeBorderTheCurrentButton(event); event.currentTarget.style.border = '2px solid #fff'});
+    isRainbow = false; drawing('purple');});
+
 
 document.getElementById("orange").addEventListener("click", (event)=> {
-    isRainbow = false; drawing('orange'); removeBorderTheCurrentButton(event); event.currentTarget.style.border = '2px solid #fff'});
+    isRainbow = false; drawing('orange');});
+
 document.getElementById("pink").addEventListener("click", (event)=> {
-    isRainbow = false; drawing('pink'); removeBorderTheCurrentButton(event); event.currentTarget.style.border = '2px solid #fff'});
+    isRainbow = false; drawing('pink');});
+
 document.getElementById("brown").addEventListener("click", (event)=> {
-    isRainbow = false; drawing('brown'); removeBorderTheCurrentButton(event); event.currentTarget.style.border = '2px solid #fff'});
+    isRainbow = false; drawing('brown');});
+
 document.getElementById("gray").addEventListener("click", (event)=> {
-    isRainbow = false; drawing('gray'); removeBorderTheCurrentButton(event); event.currentTarget.style.border = '2px solid #fff'});
+    isRainbow = false; drawing('gray');});
+    
 document.getElementById("blue").addEventListener("click", (event)=> {
-    isRainbow = false; drawing('blue'); removeBorderTheCurrentButton(event); event.currentTarget.style.border = '2px solid #fff'});
+    isRainbow = false; drawing('blue');});

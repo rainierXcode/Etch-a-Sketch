@@ -76,11 +76,10 @@ footer{
 
 #more-colors-button {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center; 
   border: none; 
   cursor: pointer;
-  gap: 5px;
 }
 
 #more-colors-button input[type="color"] {
@@ -189,6 +188,7 @@ footer{
 
 #black{
   background-color: #000;
+  border: 2px solid #fff;
 }
 
 #red{
