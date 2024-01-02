@@ -16,15 +16,18 @@ header{
   text-align: center;
 }
 
-footer{
-  position: absolute;
+footer {
+  position: fixed;
   bottom: 0;
-  left: 50%;
-  transform: translate(-50%);
+  left: 0;
+  width: 100%; 
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 3px;
+  background-color: #f0f0f0; 
 }
+
 
 .remove-attributes-button{
   outline: none;
@@ -225,4 +228,47 @@ footer{
 
 #blue{
   background-color: #0000FF;
+}
+
+
+@media screen and (max-width: 1300px) {
+  .main-container{
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .modifier-box{
+    position: static;
+  }
+
+  .sketch-box-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slider-container{
+    margin-bottom: 20px;
+  }
+
+   #clear-button{
+    margin-bottom: 50px;
+   }
+
+ 
+
+}
+
+
+@media screen and (max-width: 768px) {
+  body{
+    padding: 20px 20px 0px 20px;
+  }
+
+  .sketch-box-container{
+    width: 95vw;
+  }
+
+  .sketch-box{
+    height: 70vh;
+  }
 }
