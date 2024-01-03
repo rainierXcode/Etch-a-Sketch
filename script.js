@@ -49,26 +49,12 @@ function drawing(color){
     boxes.forEach(box => {
       box.addEventListener('mouseenter', () => {
         if (isDrawing) {
-          if(isRainbow){
-            const randomIndex = Math.floor(Math.random() * rainbowColors.length);
-            const color = rainbowColors[randomIndex];
-            box.style.backgroundColor = color;
-          }
-          else{
-            box.style.backgroundColor = color;
-          }
+         handleColorChange(box)
         }
       });
 
       box.addEventListener('click',()=>{
-        if(isRainbow){
-            const randomIndex = Math.floor(Math.random() * rainbowColors.length);
-            const color = rainbowColors[randomIndex];
-            box.style.backgroundColor = color;
-        }
-        else{
-          box.style.backgroundColor = color;
-        }
+        handleColorChange(box)
       })
     });
     
@@ -80,34 +66,15 @@ function drawing(color){
       isDrawing = false;
     });
 
-    //for phone to draw
-    boxes.forEach(box => {
-        box.addEventListener('touchmove', (event) => {
-          if (isDrawing) {
-            event.preventDefault(); // Prevent scrolling while drawing
-            const touch = event.touches[0];
-            const touchedElement = document.elementFromPoint(touch.clientX, touch.clientY);
-            
-            if (touchedElement && touchedElement.classList.contains('sketch-box')) {
-              if (isRainbow) {
-                const randomIndex = Math.floor(Math.random() * rainbowColors.length);
-                const randomColor = rainbowColors[randomIndex];
-                touchedElement.style.backgroundColor = randomColor;
-              } else {
-                touchedElement.style.backgroundColor = color;
-              }
-            }
-          }
-        });
-        
-        box.addEventListener('touchstart', () => {
-          isDrawing = true;
-        });
-    
-        box.addEventListener('touchend', () => {
-          isDrawing = false;
-        });
-      });
+    function handleColorChange(box) {
+      if (isRainbow) {
+        const randomIndex = Math.floor(Math.random() * rainbowColors.length);
+        const color = rainbowColors[randomIndex];
+        box.style.backgroundColor = color;
+      } else {
+        box.style.backgroundColor = color;
+      }
+    }
 }
 
 function clear(){
